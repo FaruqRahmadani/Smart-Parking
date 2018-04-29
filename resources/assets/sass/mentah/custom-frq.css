@@ -1,3 +1,8 @@
 .box-parkir{
   height: 450px !important;
 }
+
+.panel-yellow{
+  background: #f9bc24;
+  color: #fff;
+}
