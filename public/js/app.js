@@ -52383,20 +52383,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      status: ''
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    this.getData();
+    this.timer = setInterval(this.getData, 3000);
+  },
+
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      axios({
+        method: 'get',
+        url: '/api/status'
+      }).then(function (response) {
+        _this.status = response.data;
+      });
+    }
   }
 });
 
@@ -52408,44 +52417,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(this.status, function(statusParkir, index) {
+      return _c("div", { staticClass: "col-md-4" }, [
+        statusParkir.status
+          ? _c("div", { staticClass: "panel panel-yellow box-parkir" }, [
+              _c(
+                "div",
+                { staticClass: "panel-heading dark-overlay text-center" },
+                [_vm._v("PARKIR " + _vm._s(index))]
+              ),
+              _vm._v(" "),
+              _vm._m(0, true)
+            ])
+          : _c("div", { staticClass: "panel panel-teal box-parkir" }, [
+              _c(
+                "div",
+                { staticClass: "panel-heading dark-overlay text-center" },
+                [_vm._v("PARKIR " + _vm._s(index))]
+              ),
+              _vm._v(" "),
+              _vm._m(1, true)
+            ])
+      ])
+    })
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "panel panel-teal box-parkir" }, [
-          _c("div", { staticClass: "panel-heading dark-overlay text-center" }, [
-            _vm._v("PARKIR I")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-body" }, [_c("p")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "panel panel-teal box-parkir" }, [
-          _c("div", { staticClass: "panel-heading dark-overlay text-center" }, [
-            _vm._v("PARKIR II")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-body" }, [_c("p")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-4" }, [
-        _c("div", { staticClass: "panel panel-teal box-parkir" }, [
-          _c("div", { staticClass: "panel-heading dark-overlay text-center" }, [
-            _vm._v("PARKIR III")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "panel-body" }, [_c("p")])
-        ])
-      ])
-    ])
+    return _c("div", { staticClass: "panel-body" }, [_c("p")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-body" }, [_c("p")])
   }
 ]
 render._withStripped = true
