@@ -21,4 +21,11 @@ class JsonController extends Controller
 
     return $Parkir;
   }
+
+  public function Update($IdParkir, $Status){
+    $Parkir = new StatusParkir;
+    $Parkir->parkir_id = $IdParkir;
+    $Parkir->status    = $Status;
+    $Parkir->save();
+  }
 }
