@@ -52387,6 +52387,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -52408,6 +52414,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         url: '/api/status'
       }).then(function (response) {
         _this.status = response.data;
+        console.log(response.data);
       });
     }
   }
@@ -52425,7 +52432,7 @@ var render = function() {
     "div",
     _vm._l(this.status, function(statusParkir, index) {
       return _c("div", { staticClass: "col-md-4" }, [
-        statusParkir.status
+        statusParkir.data.status
           ? _c("div", { staticClass: "panel panel-yellow box-parkir" }, [
               _c(
                 "div",
@@ -52436,7 +52443,19 @@ var render = function() {
                 [_vm._v("PARKIR " + _vm._s(index))]
               ),
               _vm._v(" "),
-              _vm._m(0, true)
+              _c("div", { staticClass: "panel-body" }, [
+                _c("div", { staticClass: "body-box-parkir" }, [
+                  _c("div", { staticClass: "text-box-parkir" }, [
+                    _c("h1", [
+                      _vm._v(
+                        "\n              JAM MASUK " +
+                          _vm._s(statusParkir.lastjam) +
+                          "\n            "
+                      )
+                    ])
+                  ])
+                ])
+              ])
             ])
           : _c("div", { staticClass: "panel panel-teal box-parkir" }, [
               _c(
@@ -52448,7 +52467,7 @@ var render = function() {
                 [_vm._v("PARKIR " + _vm._s(index))]
               ),
               _vm._v(" "),
-              _vm._m(1, true)
+              _vm._m(0, true)
             ])
       ])
     })
@@ -52459,23 +52478,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-body" }, [
-      _c("div", { staticClass: "body-box-parkir" }, [
-        _c("h3", [_vm._v("Testing")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-body pagination-centered" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("p", [
-          _vm._v(
-            "asdlksjflksjfklsdjflksjdfkla;mdlakmdklasndklasbdakjfbaksjbfjkasbfjk"
-          )
-        ])
+    return _c("div", { staticClass: "panel-body body-box-parkir" }, [
+      _c("div", { staticClass: "text-box-parkir" }, [
+        _c("h1", [_vm._v("\n            PARKIRAN KOSONG\n          ")])
       ])
     ])
   }

@@ -13668,9 +13668,20 @@ p.back-link {
 }
 
 .body-box-parkir {
-  width: 100%;
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
+  height: 87%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+}
+
+.text-box-parkir {
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+.text-box-parkir * {
+  color: white;
 }
 
