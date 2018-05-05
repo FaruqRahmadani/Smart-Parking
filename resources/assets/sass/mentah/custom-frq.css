@@ -4,5 +4,17 @@
 
 .panel-yellow{
   background: #f9bc24;
-  color: #fff;
+  color: rgba(255,255,255,1);
+}
+
+.header-box-parkir{
+  font-size: 35px !important;
+  font-weight: bold !important;
+}
+
+.body-box-parkir{
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
 }

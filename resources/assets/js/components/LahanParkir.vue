@@ -2,15 +2,19 @@
   <div>
     <div class="col-md-4" v-for="(statusParkir, index) in this.status">
       <div class="panel panel-yellow box-parkir" v-if="statusParkir.status">
-        <div class="panel-heading dark-overlay text-center">PARKIR {{index}}</div>
+        <div class="panel-heading dark-overlay text-center header-box-parkir">PARKIR {{index}}</div>
         <div class="panel-body">
-          <p></p>
+          <div class="body-box-parkir">
+            <h3>Testing</h3>
+          </div>
         </div>
       </div>
       <div class="panel panel-teal box-parkir" v-else>
-        <div class="panel-heading dark-overlay text-center">PARKIR {{index}}</div>
-        <div class="panel-body">
-          <p></p>
+        <div class="panel-heading dark-overlay text-center header-box-parkir">PARKIR {{index}}</div>
+        <div class="panel-body pagination-centered">
+          <div class="col-md-12">
+            <p>asdlksjflksjfklsdjflksjdfkla;mdlakmdklasndklasbdakjfbaksjbfjkasbfjk</p>
+          </div>
         </div>
       </div>
     </div>

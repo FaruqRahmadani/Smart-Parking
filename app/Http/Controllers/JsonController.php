@@ -9,16 +9,13 @@ use App\StatusParkir;
 class JsonController extends Controller
 {
   public function Status(){
-    $Parkir[1] = StatusParkir::where('parkir_id', 1)
-                             ->get()
-                             ->last();
-    $Parkir[2] = StatusParkir::where('parkir_id', 2)
-                             ->get()
-                             ->last();
-    $Parkir[3] = StatusParkir::where('parkir_id', 3)
-                             ->get()
-                             ->last();
-
+    $MaxParkir = StatusParkir::all()
+                             ->max('parkir_id');
+    for ($i=1; $i <= $MaxParkir; $i++) {
+      $Parkir[$i] = StatusParkir::where('parkir_id', $i)
+                               ->get()
+                               ->last();
+    }
     return $Parkir;
   }
 
@@ -27,5 +24,8 @@ class JsonController extends Controller
     $Parkir->parkir_id = $IdParkir;
     $Parkir->status    = $Status;
     $Parkir->save();
+    if ($Parkir) {
+      return "Berhasil";
+    }
   }
 }

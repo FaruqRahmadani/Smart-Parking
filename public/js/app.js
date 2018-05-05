@@ -52383,6 +52383,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -52425,7 +52429,10 @@ var render = function() {
           ? _c("div", { staticClass: "panel panel-yellow box-parkir" }, [
               _c(
                 "div",
-                { staticClass: "panel-heading dark-overlay text-center" },
+                {
+                  staticClass:
+                    "panel-heading dark-overlay text-center header-box-parkir"
+                },
                 [_vm._v("PARKIR " + _vm._s(index))]
               ),
               _vm._v(" "),
@@ -52434,7 +52441,10 @@ var render = function() {
           : _c("div", { staticClass: "panel panel-teal box-parkir" }, [
               _c(
                 "div",
-                { staticClass: "panel-heading dark-overlay text-center" },
+                {
+                  staticClass:
+                    "panel-heading dark-overlay text-center header-box-parkir"
+                },
                 [_vm._v("PARKIR " + _vm._s(index))]
               ),
               _vm._v(" "),
@@ -52449,13 +52459,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-body" }, [_c("p")])
+    return _c("div", { staticClass: "panel-body" }, [
+      _c("div", { staticClass: "body-box-parkir" }, [
+        _c("h3", [_vm._v("Testing")])
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-body" }, [_c("p")])
+    return _c("div", { staticClass: "panel-body pagination-centered" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("p", [
+          _vm._v(
+            "asdlksjflksjfklsdjflksjdfkla;mdlakmdklasndklasbdakjfbaksjbfjkasbfjk"
+          )
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true

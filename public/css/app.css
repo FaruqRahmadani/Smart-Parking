@@ -13659,6 +13659,18 @@ p.back-link {
 
 .panel-yellow {
   background: #f9bc24;
-  color: #fff;
+  color: white;
+}
+
+.header-box-parkir {
+  font-size: 35px !important;
+  font-weight: bold !important;
+}
+
+.body-box-parkir {
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
 }
 
