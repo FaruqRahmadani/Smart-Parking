@@ -1,3 +1,3 @@
 <?php
 
-Route::GET('', 'UserController@Parkir');
+Route::GET('', 'UserController@Parkir')->name('Status-Parkir');
