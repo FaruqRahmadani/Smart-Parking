@@ -13902,19 +13902,6 @@ module.exports = __webpack_require__(51);
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-/**
-* First we will load all of this project's JavaScript dependencies which
-* includes Vue and other libraries. It is a great starting point when
-* building robust, powerful web applications using Vue and Laravel.
-*/
-
-/**
-* Next, we will create a fresh Vue application instance and attach it to
-* the page. Then, you may begin adding components to this application
-* or customize the JavaScript scaffolding to fit your unique needs.
-*/
-
 window.Vue = __webpack_require__(14);
 
 __webpack_require__(17);
@@ -13926,11 +13913,6 @@ __webpack_require__(43);
 __webpack_require__(44);
 __webpack_require__(45);
 __webpack_require__(46);
-
-// const app = new Vue({
-//   el: '#app',
-// });
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 /***/ }),
 /* 14 */
@@ -52391,8 +52373,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -52414,7 +52394,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         url: '/api/status'
       }).then(function (response) {
         _this.status = response.data;
-        console.log(response.data);
       });
     }
   }
@@ -52443,16 +52422,14 @@ var render = function() {
                 [_vm._v("PARKIR " + _vm._s(index))]
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "panel-body" }, [
-                _c("div", { staticClass: "body-box-parkir" }, [
-                  _c("div", { staticClass: "text-box-parkir" }, [
-                    _c("h1", [
-                      _vm._v(
-                        "\n              JAM MASUK " +
-                          _vm._s(statusParkir.lastjam) +
-                          "\n            "
-                      )
-                    ])
+              _c("div", { staticClass: "panel-body body-box-parkir" }, [
+                _c("div", { staticClass: "text-box-parkir" }, [
+                  _c("h1", [
+                    _vm._v(
+                      "\n            JAM MASUK " +
+                        _vm._s(statusParkir.lastjam) +
+                        "\n          "
+                    )
                   ])
                 ])
               ])

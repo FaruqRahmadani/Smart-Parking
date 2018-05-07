@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SMARTParking</title>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('icon.png') }}"/>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
