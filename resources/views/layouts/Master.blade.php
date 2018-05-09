@@ -26,6 +26,11 @@
             <em class="fa fa-th">&nbsp;</em> Status Parkir
           </a>
         </li>
+        <li class="active">
+          <a href="{{ Route('Data-Parkir') }}">
+            <em class="fa fa-th">&nbsp;</em> Data Parkir
+          </a>
+        </li>
     </ul>
   </div>
   <div id="app">

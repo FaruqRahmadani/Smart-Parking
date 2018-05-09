@@ -209,6 +209,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Parkir' => App\Helpers\ParkirHelper::class,
+        'Waktu' => App\Helpers\WaktuHelper::class,
 
     ],
 
