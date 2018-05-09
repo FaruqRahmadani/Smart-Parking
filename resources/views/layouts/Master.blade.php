@@ -21,12 +21,12 @@
     </nav>
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
       <ul class="nav menu">
-        <li class="active">
+        <li {{RouteHelper::ActiveRoute('Status-Parkir')}}>
           <a href="{{ Route('Status-Parkir') }}">
             <em class="fa fa-th">&nbsp;</em> Status Parkir
           </a>
         </li>
-        <li class="active">
+        <li {{RouteHelper::ActiveRoute('Data-Parkir')}}>
           <a href="{{ Route('Data-Parkir') }}">
             <em class="fa fa-th">&nbsp;</em> Data Parkir
           </a>
@@ -34,7 +34,14 @@
     </ul>
   </div>
   <div id="app">
-    @yield('content')
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">{{RouteHelper::JudulRoute()}}</h1>
+        </div>
+      </div>
+        @yield('content')
+    </div>
   </div>
 
 <script src="{{ asset('js/app.js') }}"></script>

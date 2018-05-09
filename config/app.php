@@ -210,6 +210,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Parkir' => App\Helpers\ParkirHelper::class,
         'Waktu' => App\Helpers\WaktuHelper::class,
+        'RouteHelper' => App\Helpers\RouteHelper::class,
 
     ],
 
