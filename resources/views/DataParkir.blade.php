@@ -31,7 +31,9 @@
             </select>
           </div>
           <div class="col-md-2 col-md-offset-1 text-center">
-            <button type="submit" class="btn btn-primary" style="margin-top:25px">Submit</button>
+            <button type="submit" class="btn btn-primary" style="margin-top:25px">
+              <span class="fa fa-search"></span> | Filter
+            </button>
           </div>
         </form>
       </div>

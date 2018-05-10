@@ -10,7 +10,7 @@ class WaktuHelper{
   }
 
   public static function Jam($waktu){
-    $return = Carbon::parse($waktu)->format('H:i A');
+    $return = Carbon::parse($waktu)->format('h:i A');
     return $return;
   }
 
