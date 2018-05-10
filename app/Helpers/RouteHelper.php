@@ -6,7 +6,7 @@ use Request;
 class RouteHelper{
   public static function ActiveRoute($RouteName){
     $CurrentRouteName = Request::route()->getName();
-    if ($RouteName == $CurrentRouteName) {
+    if ($RouteName == $CurrentRouteName || str_contains($CurrentRouteName, $RouteName)) {
       return 'class=active';
     }
   }
