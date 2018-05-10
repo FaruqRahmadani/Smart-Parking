@@ -13895,7 +13895,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -13911,10 +13911,10 @@ __webpack_require__(41);
 __webpack_require__(42);
 __webpack_require__(43);
 __webpack_require__(44);
-__webpack_require__(68);
-__webpack_require__(69);
 __webpack_require__(45);
 __webpack_require__(46);
+__webpack_require__(47);
+__webpack_require__(48);
 
 /***/ }),
 /* 14 */
@@ -52146,377 +52146,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 /***/ }),
 /* 45 */
-/***/ (function(module, exports) {
-
-$('#calendar').datepicker({});
-
-!function ($) {
-	$(document).on("click", "ul.nav li.parent > a ", function () {
-		$(this).find('em').toggleClass("fa-minus");
-	});
-	$(".sidebar span.icon").find('em:first').addClass("fa-plus");
-}(window.jQuery);
-$(window).on('resize', function () {
-	if ($(window).width() > 768) $('#sidebar-collapse').collapse('show');
-});
-$(window).on('resize', function () {
-	if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide');
-});
-
-$(document).on('click', '.panel-heading span.clickable', function (e) {
-	var $this = $(this);
-	if (!$this.hasClass('panel-collapsed')) {
-		$this.parents('.panel').find('.panel-body').slideUp();
-		$this.addClass('panel-collapsed');
-		$this.find('em').removeClass('fa-toggle-up').addClass('fa-toggle-down');
-	} else {
-		$this.parents('.panel').find('.panel-body').slideDown();
-		$this.removeClass('panel-collapsed');
-		$this.find('em').removeClass('fa-toggle-down').addClass('fa-toggle-up');
-	}
-});
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-Vue.component('box-parkir', __webpack_require__(47));
-
-var vm = new Vue({
-  el: '#app'
-});
-
-$(document).ready(function () {
-  $('#table_id').DataTable();
-});
-$('#table_id').DataTable({
-  language: {
-    processing: "Sedang memproses...",
-    search: "Cari Data&nbsp&nbsp;:&nbsp",
-    lengthMenu: "Tampilkan _MENU_ data",
-    info: "(&nbsp Menampilkan _START_ sampai _END_, dari _TOTAL_ data &nbsp)",
-    infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
-    infoFiltered: "(disaring dari _MAX_ data keseluruhan)",
-    infoPostFix: "",
-    zeroRecords: "Tidak ditemukan data yang sesuai",
-    paginate: {
-      previous: "Sebelumnya&nbsp",
-      next: "&nbspSelanjutnya"
-    }
-  }
-});
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(48)
-/* script */
-var __vue_script__ = __webpack_require__(49)
-/* template */
-var __vue_template__ = __webpack_require__(50)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/LahanParkir.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-70ea41cc", Component.options)
-  } else {
-    hotAPI.reload("data-v-70ea41cc", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      status: ''
-    };
-  },
-  mounted: function mounted() {
-    this.getData();
-    this.timer = setInterval(this.getData, 3000);
-  },
-
-  methods: {
-    getData: function getData() {
-      var _this = this;
-
-      axios({
-        method: 'get',
-        url: '/api/status'
-      }).then(function (response) {
-        _this.status = response.data;
-      });
-    }
-  }
-});
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(this.status, function(statusParkir, index) {
-      return _c("div", { staticClass: "col-md-4" }, [
-        statusParkir.data.status
-          ? _c("div", { staticClass: "panel panel-yellow box-parkir" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "panel-heading dark-overlay text-center header-box-parkir"
-                },
-                [_vm._v("PARKIR " + _vm._s(index))]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "panel-body body-box-parkir" }, [
-                _c("div", { staticClass: "text-box-parkir" }, [
-                  _c("h1", [
-                    _vm._v(
-                      "\n            JAM MASUK " +
-                        _vm._s(statusParkir.lastjam) +
-                        "\n          "
-                    )
-                  ])
-                ])
-              ])
-            ])
-          : _c("div", { staticClass: "panel panel-teal box-parkir" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "panel-heading dark-overlay text-center header-box-parkir"
-                },
-                [_vm._v("PARKIR " + _vm._s(index))]
-              ),
-              _vm._v(" "),
-              _vm._m(0, true)
-            ])
-      ])
-    })
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-body body-box-parkir" }, [
-      _c("div", { staticClass: "text-box-parkir" }, [
-        _c("h1", [_vm._v("\n            PARKIRAN KOSONG\n          ")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-70ea41cc", module.exports)
-  }
-}
-
-/***/ }),
-/* 51 */,
-/* 52 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -54425,7 +54054,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
 });
 
 /***/ }),
-/* 69 */
+/* 46 */
 /***/ (function(module, exports) {
 
 /* Set the defaults for DataTables initialisation */
@@ -54478,6 +54107,362 @@ $.extend(!0, $.fn.dataTable.defaults, { sDom: "<'row'<'col-xs-6'l><'col-xs-6'f>r
         }0 === j.iPage ? $("li.prev", k[c]).addClass("disabled") : $("li.prev", k[c]).removeClass("disabled"), j.iPage === j.iTotalPages - 1 || 0 === j.iTotalPages ? $("li.next", k[c]).addClass("disabled") : $("li.next", k[c]).removeClass("disabled");
       }
     } } })), $.fn.DataTable.TableTools && ($.extend(!0, $.fn.DataTable.TableTools.classes, { container: "DTTT btn-group", buttons: { normal: "btn btn-default", disabled: "disabled" }, collection: { container: "DTTT_dropdown dropdown-menu", buttons: { normal: "", disabled: "disabled" } }, print: { info: "DTTT_print_info modal" }, select: { row: "active" } }), $.extend(!0, $.fn.DataTable.TableTools.DEFAULTS.oTags, { collection: { container: "ul", button: "li", liner: "a" } }));
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+$('#calendar').datepicker({});
+
+!function ($) {
+	$(document).on("click", "ul.nav li.parent > a ", function () {
+		$(this).find('em').toggleClass("fa-minus");
+	});
+	$(".sidebar span.icon").find('em:first').addClass("fa-plus");
+}(window.jQuery);
+$(window).on('resize', function () {
+	if ($(window).width() > 768) $('#sidebar-collapse').collapse('show');
+});
+$(window).on('resize', function () {
+	if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide');
+});
+
+$(document).on('click', '.panel-heading span.clickable', function (e) {
+	var $this = $(this);
+	if (!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.panel-body').slideUp();
+		$this.addClass('panel-collapsed');
+		$this.find('em').removeClass('fa-toggle-up').addClass('fa-toggle-down');
+	} else {
+		$this.parents('.panel').find('.panel-body').slideDown();
+		$this.removeClass('panel-collapsed');
+		$this.find('em').removeClass('fa-toggle-down').addClass('fa-toggle-up');
+	}
+});
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Vue.component('box-parkir', __webpack_require__(49));
+
+var vm = new Vue({
+  el: '#app'
+});
+
+$(document).ready(function () {
+  $('#table_id').DataTable();
+});
+$('#table_id').DataTable({
+  responsive: true,
+  language: {
+    processing: "Sedang memproses...",
+    search: "Cari Data&nbsp&nbsp;:&nbsp",
+    lengthMenu: "Tampilkan _MENU_ data",
+    info: "(&nbsp Menampilkan _START_ sampai _END_, dari _TOTAL_ data &nbsp)",
+    infoEmpty: "Menampilkan 0 sampai 0 dari 0 data",
+    infoFiltered: "(disaring dari _MAX_ data keseluruhan)",
+    infoPostFix: "",
+    zeroRecords: "Tidak ditemukan data yang sesuai",
+    paginate: {
+      previous: "Sebelumnya&nbsp",
+      next: "&nbspSelanjutnya"
+    }
+  }
+});
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(50)
+/* script */
+var __vue_script__ = __webpack_require__(51)
+/* template */
+var __vue_template__ = __webpack_require__(52)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/LahanParkir.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-70ea41cc", Component.options)
+  } else {
+    hotAPI.reload("data-v-70ea41cc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      status: ''
+    };
+  },
+  mounted: function mounted() {
+    this.getData();
+    this.timer = setInterval(this.getData, 3000);
+  },
+
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      axios({
+        method: 'get',
+        url: '/api/status'
+      }).then(function (response) {
+        _this.status = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(this.status, function(statusParkir, index) {
+      return _c("div", { staticClass: "col-md-4" }, [
+        statusParkir.data.status
+          ? _c("div", { staticClass: "panel panel-yellow box-parkir" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "panel-heading dark-overlay text-center header-box-parkir"
+                },
+                [_vm._v("PARKIR " + _vm._s(index))]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "panel-body body-box-parkir" }, [
+                _c("div", { staticClass: "text-box-parkir" }, [
+                  _c("h1", [
+                    _vm._v(
+                      "\n            JAM MASUK " +
+                        _vm._s(statusParkir.lastjam) +
+                        "\n          "
+                    )
+                  ])
+                ])
+              ])
+            ])
+          : _c("div", { staticClass: "panel panel-teal box-parkir" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "panel-heading dark-overlay text-center header-box-parkir"
+                },
+                [_vm._v("PARKIR " + _vm._s(index))]
+              ),
+              _vm._v(" "),
+              _vm._m(0, true)
+            ])
+      ])
+    })
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-body body-box-parkir" }, [
+      _c("div", { staticClass: "text-box-parkir" }, [
+        _c("h1", [_vm._v("\n            PARKIRAN KOSONG\n          ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-70ea41cc", module.exports)
+  }
+}
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

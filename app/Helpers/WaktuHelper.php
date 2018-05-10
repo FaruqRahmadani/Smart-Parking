@@ -13,4 +13,9 @@ class WaktuHelper{
     $return = Carbon::parse($waktu)->format('H:i A');
     return $return;
   }
+
+  public static function TanggalNow(){
+    $return = Carbon::now()->format('Y-m-d');
+    return $return;
+  }
 }
