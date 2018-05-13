@@ -1,14 +1,16 @@
 <?php
 namespace App\Helpers;
 
-class ParkirHelper{
-  public static function Status($status){
-    $warna = $status ? 'panel-yellow' : 'panel-teal';
-    return $warna;
-  }
+use Crypter;
+use Waktu;
 
-  public static function Tanggal($tanggal){
-    $return = Carbon\Carbon::parse($tanggal)->format('d-m-Y');
-    return $return;
+class ParkirHelper{
+  public static function LinkPrintData($request){
+    $tanggalawal = $request ? $request->tanggalawal : '2011-01-01';
+    $tanggalakhir = $request ? $request->tanggalakhir : Waktu::TanggalNow();
+    $nomorparkir = $request ? $request->nomorparkir : '01012011';
+    $statusparkir = $request ? $request->statusparkir : '01012011';
+    $link = Route('Print-Data-Parkir', ['tanggalawal' => Crypter::Encrypt($tanggalawal), 'tanggalakhir' => Crypter::Encrypt($tanggalakhir), 'nomorparkir' => Crypter::Encrypt($nomorparkir), 'statusparkir' => Crypter::Encrypt($statusparkir)]);
+    return $link;
   }
 }

@@ -211,6 +211,7 @@ return [
         'Parkir' => App\Helpers\ParkirHelper::class,
         'Waktu' => App\Helpers\WaktuHelper::class,
         'RouteHelper' => App\Helpers\RouteHelper::class,
+        'Crypter' => App\Helpers\CrypterHelper::class,
 
     ],
 

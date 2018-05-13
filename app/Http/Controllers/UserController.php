@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\StatusParkir;
 
+use Crypter;
 use Parkir;
 use Waktu;
+use PDF;
 
 class UserController extends Controller
 {
@@ -36,5 +38,25 @@ class UserController extends Controller
     $MaxParkir = $Parkir->max('parkir_id');
 
     return view('DataParkir', ['Parkir' => $Parkir->get(), 'MaxParkir' => $MaxParkir, 'request' => $request]);
+  }
+
+  public function PrintDataParkir($tanggalawal, $tanggalakhir, $nomorparkir, $statusparkir){
+    $tanggalawal = Crypter::Decrypt($tanggalawal);
+    $tanggalakhir = Crypter::Decrypt($tanggalakhir);
+    $nomorparkir = Crypter::Decrypt($nomorparkir);
+    $statusparkir = Crypter::Decrypt($statusparkir);
+
+    $Parkir = StatusParkir::whereDate('created_at', '>=', $tanggalawal)
+                          ->whereDate('created_at', '<=', $tanggalakhir);
+
+    if ($nomorparkir != '01012011') {
+      $Parkir = $Parkir->where('parkir_id', $nomorparkir);
+    }
+    if ($statusparkir != '01012011') {
+      $Parkir = $Parkir->where('status', $statusparkir);
+    }
+    
+    $pdf = PDF::loadview('print.DataParkir', ['Parkir' => $Parkir->get()]);
+    return $pdf->stream();
   }
 }

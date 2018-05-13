@@ -7,7 +7,7 @@
           {{ csrf_field() }}
           <div class="col-md-2 text-center text-center">
             <label>Tanggal Awal</label>
-            <input type="date" name="tanggalawal" value="{{ isset($request) ? $request->tanggalawal : Waktu::TanggalNow() }}" class="form-control form-control-h34px">
+            <input type="date" name="tanggalawal" value="{{ isset($request) ? $request->tanggalawal : '2011-01-01' }}" class="form-control form-control-h34px">
           </div>
           <div class="col-md-2 text-center">
             <label>Tanggal Akhir</label>
@@ -30,10 +30,17 @@
               <option value="0" {{ isset($request) && $request->statusparkir == '0' ? 'selected' : '' }}>Kosong</option>
             </select>
           </div>
-          <div class="col-md-2 col-md-offset-1 text-center">
-            <button type="submit" class="btn btn-primary" style="margin-top:25px">
-              <span class="fa fa-search"></span> | Filter
-            </button>
+          <div style="padding-top:25px">
+            <div class="col-md-2 text-center">
+              <button type="submit" class="btn btn-primary">
+                <span class="fa fa-search"></span> | Filter
+              </button>
+            </div>
+            <div class="col-md-2 text-center">
+              <a href="{{ Parkir::LinkPrintData(isset($request) ? $request : 0) }}" target="_blank" class="btn btn-info">
+                <span class="fa fa-print"></span> | Cetak
+              </a>
+            </div>
           </div>
         </form>
       </div>
