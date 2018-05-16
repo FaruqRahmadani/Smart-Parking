@@ -8,3 +8,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::GET('status', 'JsonController@Status');
 Route::GET('update/{IdParkir}/{Status}', 'JsonController@Update');
+Route::GET('dataparkir/statistik', 'JsonController@StatistikDataParkir');

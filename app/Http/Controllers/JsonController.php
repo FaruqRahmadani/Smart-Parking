@@ -8,6 +8,8 @@ use Carbon\Carbon;
 
 use App\StatusParkir;
 
+use Waktu;
+
 class JsonController extends Controller
 {
   public function Status(){
@@ -33,5 +35,24 @@ class JsonController extends Controller
     if ($Parkir) {
       return "Berhasil";
     }
+  }
+
+  public function StatistikDataParkir(){
+    $MaxDate = Carbon::parse(StatusParkir::max('created_at'));
+    $MaxMonth = $MaxDate->format('n');
+    $MaxParkir = StatusParkir::all()
+                             ->max('parkir_id');
+
+    for ($JumlahParkir=1; $JumlahParkir <= $MaxParkir ; $JumlahParkir++) {
+      for ($Month=1; $Month <= $MaxMonth ; $Month++) {
+        $Parkir['Data'][$JumlahParkir][$Month] = StatusParkir::whereMonth('created_at', $Month)
+                                                     ->where('parkir_id', $JumlahParkir)
+                                                     ->where('status', 1)
+                                                     ->get()
+                                                     ->count();
+      }
+    }
+    $Parkir['LastDate'] = $MaxDate;
+    return $Parkir;
   }
 }

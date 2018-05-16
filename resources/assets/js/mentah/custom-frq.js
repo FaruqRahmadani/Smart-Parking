@@ -1,4 +1,5 @@
 Vue.component('box-parkir', require('./../components/LahanParkir.vue'));
+Vue.component('bar-statistik', require('./../components/BarStatistik.vue'));
 
 var vm = new Vue({
   el: '#app',
@@ -24,3 +25,5 @@ $('#table_id').DataTable({
     }
   }
 });
+
+import Chart from 'chart.js';

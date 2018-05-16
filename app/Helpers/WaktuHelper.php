@@ -18,4 +18,23 @@ class WaktuHelper{
     $return = Carbon::now()->format('Y-m-d');
     return $return;
   }
+
+  public static function Bulan($index){
+    $Bulan = [
+      'Januari',
+      'Februari',
+      'Maret',
+      'April',
+      'Mei',
+      'Juni',
+      'Juli',
+      'Agustus',
+      'September',
+      'Oktober',
+      'November',
+      'Desember'
+    ];
+
+    return $Bulan[$index];
+  }
 }

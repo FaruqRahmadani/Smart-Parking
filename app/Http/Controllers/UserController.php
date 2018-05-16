@@ -55,8 +55,12 @@ class UserController extends Controller
     if ($statusparkir != '01012011') {
       $Parkir = $Parkir->where('status', $statusparkir);
     }
-    
+
     $pdf = PDF::loadview('print.DataParkir', ['Parkir' => $Parkir->get()]);
     return $pdf->stream();
+  }
+
+  public function StatistikParkir(){
+    return view('StatistikParkir');
   }
 }

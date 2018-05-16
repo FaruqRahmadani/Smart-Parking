@@ -23,12 +23,17 @@
       <ul class="nav menu">
         <li {{RouteHelper::ActiveRoute('Status-Parkir')}}>
           <a href="{{ Route('Status-Parkir') }}">
-            <em class="fa fa-th">&nbsp;</em> Status Parkir
+            <em class="fa fa-th-large">&nbsp;</em> Status
           </a>
         </li>
         <li {{RouteHelper::ActiveRoute('Data-Parkir')}}>
           <a href="{{ Route('Data-Parkir') }}">
-            <em class="fa fa-th">&nbsp;</em> Data Parkir
+            <em class="fa fa-list-alt">&nbsp;</em> Data
+          </a>
+        </li>
+        <li {{RouteHelper::ActiveRoute('Statistik-Parkir')}}>
+          <a href="{{ Route('Statistik-Parkir') }}">
+            <em class="fa fa-bar-chart">&nbsp;</em> Statistik
           </a>
         </li>
     </ul>
