@@ -38,18 +38,18 @@ class JsonController extends Controller
   }
 
   public function StatistikDataParkir(){
+    $MinDate = Carbon::parse(StatusParkir::min('created_at'));
     $MaxDate = Carbon::parse(StatusParkir::max('created_at'));
-    $MaxMonth = $MaxDate->format('n');
-    $MaxParkir = StatusParkir::all()
-                             ->max('parkir_id');
-
-    for ($JumlahParkir=1; $JumlahParkir <= $MaxParkir ; $JumlahParkir++) {
-      for ($Month=1; $Month <= $MaxMonth ; $Month++) {
-        $Parkir['Data'][$JumlahParkir][$Month] = StatusParkir::whereMonth('created_at', $Month)
-                                                     ->where('parkir_id', $JumlahParkir)
-                                                     ->where('status', 1)
-                                                     ->get()
-                                                     ->count();
+    $DiffDate = $MinDate->diffInMonths($MaxDate);
+    $MaxParkir = StatusParkir::max('parkir_id');
+    for ($IDParkir=1; $IDParkir <= $MaxParkir; $IDParkir++) {
+      for ($DiffMonth=0; $DiffMonth <= $DiffDate; $DiffMonth++) {
+        $Month = $MinDate->copy()->addMonths($DiffMonth)->format('Y-m');
+        $Parkir['Data'][$IDParkir][$Month] = StatusParkir::whereDate('created_at', 'like', $Month.'%')
+                                                         ->where('parkir_id', $IDParkir)
+                                                         ->where('status', 1)
+                                                         ->get()
+                                                         ->count();
       }
     }
     $Parkir['LastDate'] = $MaxDate;

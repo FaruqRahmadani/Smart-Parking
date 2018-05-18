@@ -1,5 +1,9 @@
 <template>
-  <canvas id="barChart" width="400" height="200"></canvas>
+  <div class="col-md-12">
+    <div class="container-fluid">
+      <canvas id="barChart" width="400" height="200"></canvas>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -36,21 +40,21 @@ export default {
           datasets: [
             {
               label: 'Parkiran #1',
-              data: this.foreachArray(this.data[1], 'value'),
+              data: this.foreachArray(this.data[1]),
               backgroundColor: this.loopingEach(this.data[1], 'rgba(255, 99, 132, 0.2)'),
               borderColor: this.loopingEach(this.data[1], 'rgba(255,99,132,1)'),
               borderWidth: 1
             },
             {
               label: 'Parkiran #2',
-              data: this.foreachArray(this.data[2], 'value'),
+              data: this.foreachArray(this.data[2]),
               backgroundColor: this.loopingEach(this.data[2], 'rgba(54, 162, 235, 0.2)'),
               borderColor: this.loopingEach(this.data[2], 'rgba(54, 162, 235,1)'),
               borderWidth: 1
             },
             {
               label: 'Parkiran #3',
-              data: this.foreachArray(this.data[3], 'value'),
+              data: this.foreachArray(this.data[3]),
               backgroundColor: this.loopingEach(this.data[3], 'rgba(255, 206, 86, 0.2)'),
               borderColor: this.loopingEach(this.data[3], 'rgba(255, 206, 86, 1)'),
               borderWidth: 1
@@ -61,14 +65,14 @@ export default {
           scales: {
             yAxes: [{
               ticks: {
-                beginAtZero:true
+                beginAtZero:false
               }
             }]
           }
         }
       });
     },
-    foreachArray(data, type){
+    foreachArray(data, type = 'value'){
       var returnData = []
       $.each(data, function(index, value){
         var tipe = type == 'value' ? value : index
