@@ -35,7 +35,7 @@ class UserController extends Controller
       $Parkir = $Parkir->where('status', $request->statusparkir);
     }
 
-    $MaxParkir = $Parkir->max('parkir_id');
+    $MaxParkir = StatusParkir::max('parkir_id');
 
     return view('DataParkir', ['Parkir' => $Parkir->get(), 'MaxParkir' => $MaxParkir, 'request' => $request]);
   }
